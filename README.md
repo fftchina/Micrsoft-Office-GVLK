@@ -1,6 +1,19 @@
 零售版的Office 轉換為VOL版腳本激活方法：
 
 當您安装完成 Office Professional Plus  Retail 官方原版後，將下列的代碼用記事本貼上，再更改一下"192.168.xxx.xxxx "個一欄為KMS Server目標IP後將內容後保存為 .bat 文件，然後以管理員的權限運行，即可一步完成所有的激活操作
+
+
+<p>Office Professional Plus 2024 ：<br/></p>
+<pre><code>if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16"
+if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16"
+for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2024VL_KMS*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x"
+for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2024VL_MAK*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x"
+cscript ospp.vbs /inpkey:XJ2XN-FW8RK-P4HMP-DKDBV-GCVGB
+cscript ospp.vbs /sethst:192.168.xxx.xxxx 
+cscript ospp.vbs /unpkey:8MBCX
+cscript ospp.vbs /act</code></pre></div>
+            </div>
+
   
 
 <p> Office Professional Plus 2019 ：<br/></p>
