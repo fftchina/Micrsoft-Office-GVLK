@@ -1,59 +1,54 @@
 @echo off
-
-rem Microsoft Office Professional Plus 2021 - Activator by Vishnu
-
-title Office 2021 Activator
+title Activate Microsoft Office Professional Plus 2021 !
 cls
-echo =====================================================================================
+echo ============================================================================
+echo #Project: Activating Microsoft software products
+echo ============================================================================
 echo.
-echo Activating Microsoft Office Professional Plus 2021
-echo.
-echo =====================================================================================
-echo Supported products:
+echo #Supported products:
 echo - Microsoft Office Professional Plus 2021
-echo =====================================================================================
+echo.
+echo.
 (if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16")
 (if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16")
 (for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2021VL_KMS*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)
-
+(for /f %%x in ('dir /b ..\root\Licenses16\ProPlus2021VL_MAK*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)
 echo.
-echo Activating Office...
-echo.
-
+echo ============================================================================
+echo Activating your Office...
 cscript //nologo slmgr.vbs /ckms >nul
 cscript //nologo ospp.vbs /setprt:1688 >nul
-cscript //nologo ospp.vbs /unpkey:6F7TH >nul
+cscript //nologo ospp.vbs /unpkey:6MWKP >nul
+cscript //nologo ospp.vbs /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH >nul
 set i=1
-cscript //nologo ospp.vbs /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH >nul||goto notsupported
+:server
+if %i%==1 set KMS_Sev=192.168.100.1
+if %i%==2 set KMS_Sev=192.168.1.100
+if %i%==3 set KMS_Sev=192.168.0.100
+if %i%==4 goto notsupported
+cscript //nologo ospp.vbs /sethst:%KMS_Sev% >nul
+echo ============================================================================
+echo.
+echo.
+cscript //nologo ospp.vbs /act | find /i "successful" 
 
-:skms
-if %i% GTR 10 goto busy
-if %i% EQU 1 set KMS=192.168.0.1
-if %i% EQU 2 set KMS=192.168.1.1
-if %i% EQU 3 set KMS=192.168.2.1
-if %i% GTR 3 goto ato
-cscript //nologo ospp.vbs /sethst:%KMS% >nul
-
-:ato
-
-cscript //nologo ospp.vbs /act | find /i "successful" && (
-    echo.
-    if errorlevel 2 exit) || (
-        echo The connection to KMS server failed! 
-        echo Trying to connect to another one...
-        echo.
-        set /a i+=1 & goto skms)
-
+ (echo.
+echo ============================================================================
+echo #Please feel free to contact me at admin@gmail.com if you have any questions or concerns.
+echo ============================================================================
+choice /n /c YN /m "Would you like to visit my Page [Y,N]?" 
+ if errorlevel 2 exit) || (echo The connection to my KMS server failed! Trying to connect to another one... 
+ echo Please wait... 
+ echo. 
+ echo. 
+ set /a i+=1 
+ goto server)
+explorer "https://github.com/kwokaa2019"
 goto halt
-
-echo =====================================================================================
 :notsupported
-echo =====================================================================================
-echo Sorry, your version is not supported.
-:busy
-echo =====================================================================================
-echo Sorry, the server is busy and can't respond to your request. Please try again.
+echo.
+echo ============================================================================
+echo Sorry! Your version is not supported.
+echo.
 :halt
-echo =====================================================================================
-
-PAUSE
+pause >nul
