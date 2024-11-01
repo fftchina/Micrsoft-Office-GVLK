@@ -27,7 +27,7 @@ cscript //nologo ospp.vbs /unpkey:6MWKP >nul
 cscript //nologo ospp.vbs /inpkey:XJ2XN-FW8RK-P4HMP-DKDBV-GCVGB >nul
 set i=1
 :server
-if %i%==1 set KMS_Sev=kms.coms.hk
+if %i%==1 set KMS_Sev=192.168.100.100
 if %i%==2 set KMS_Sev=192.168.1.100
 if %i%==3 set KMS_Sev=192.168.0.100
 if %i%==4 goto notsupported
